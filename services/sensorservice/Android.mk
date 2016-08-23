@@ -26,6 +26,7 @@ LOCAL_CFLAGS += -Wall -Werror -Wextra
 
 LOCAL_CFLAGS += -fvisibility=hidden
 
+
 LOCAL_SHARED_LIBRARIES := \
     libcutils \
     libhardware \
