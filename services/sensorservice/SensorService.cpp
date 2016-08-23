@@ -150,6 +150,12 @@ void SensorService::onFirstRef() {
             for (ssize_t i=0 ; i<count ; i++) {
                 bool useThisSensor=true;
 
+		// Some devices have an unreliable hardware rotation vector sensor
+		// Let us use AOSP based implementation instead
+		if (SENSOR_TYPE_ROTATION_VECTOR == list[i].type) {
+		    continue;
+		}
+                registerSensor( new HardwareSensor(list[i]) );
                 switch (list[i].type) {
                     case SENSOR_TYPE_ACCELEROMETER:
                         hasAccel = true;
