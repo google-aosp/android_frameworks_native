@@ -404,7 +404,7 @@ status_t BnSurfaceComposer::onTransact(
         case CAPTURE_SCREEN_DEPRECATED: {
             CHECK_INTERFACE(ISurfaceComposer, data, reply);
             sp<IBinder> display = data.readStrongBinder();
-            Rect sourceCrop;
+            Rect sourceCrop(Rect::EMPTY_RECT);
             data.read(sourceCrop);
             uint32_t reqWidth = data.readUint32();
             uint32_t reqHeight = data.readUint32();
